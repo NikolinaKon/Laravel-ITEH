@@ -19,8 +19,10 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'surname',
         'email',
         'password',
+        'year_of_birth'
     ];
 
     /**
@@ -28,6 +30,10 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    public function events()
+    {
+        return $this->hasMany(Event::class);
+    }
     protected $hidden = [
         'password',
         'remember_token',
@@ -40,6 +46,6 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
+       
     ];
 }

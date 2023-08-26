@@ -6,12 +6,10 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-    * Run the migrations.
-    */
+   
    public function up(): void
    {
-       Schema::create('event', function (Blueprint $table) {
+       Schema::create('events', function (Blueprint $table) {
            $table->id();
            $table->string('event_type')->default('Photoshooting');
            $table->date('date');
@@ -26,7 +24,7 @@ return new class extends Migration
     */
    public function down()
    {
-       Schema::table('meetings', function (Blueprint $table) {
+       Schema::table('events', function (Blueprint $table) {
        $table->dropForeign("user_id");
        $table->dropForeign("photographer_id");
    });

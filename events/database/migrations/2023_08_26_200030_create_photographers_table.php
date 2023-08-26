@@ -5,19 +5,16 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
-{
-   /**
-     * Run the migrations.
-     */
-    public function up(): void
+{ public function up(): void
     {
-        Schema::create('photographer', function (Blueprint $table) {
+        Schema::create('photographers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email');
             $table->float('price_per_hour');
+            $table-> string('equipment');
         });
     }
 
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('photographer');
+        Schema::dropIfExists('photographers');
     }
 };

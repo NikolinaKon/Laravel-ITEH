@@ -17,8 +17,12 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $regex = '[0-2]{2}[0-9]{2}/20[0-9]{2}';
+        $regex2 = '[1-6]';
         return [
-            'name' => fake()->name(),
+            'name' => fake()->firstName(),
+            'last_name' =>fake()->lastName(),
+            'year_of_birth' =>fake()->regexify($regex2),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
